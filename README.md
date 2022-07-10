@@ -43,8 +43,8 @@ Note that:
   - We see no upward-spikes in the learning curves
   - Final test loss is lower than train loss; this is very unusual/rare. It indicates that our model is not too complex nor too simple and has great generalization power.
   - The boundary between the orange and blue clusters is smooth & clear:
-   - It lies half-way between the closest points in the two sets (the support vectors)
-   - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
+    - It lies half-way between the closest points in the two sets (the support vectors)
+    - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
 
 ### Final test and test error
