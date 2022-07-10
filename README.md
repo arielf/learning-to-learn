@@ -69,16 +69,15 @@ converging towards zero as can be seen here:
 ![Inability to converge](images/003-unable-to-converge.png)
 
 We could "add capacity" complicating the model by adding
-hidden-layers. This allows the training to converge to a solution,
-but this solution is not optimal:
+hidden-layers. This allows the training to converge to a (near zero loss) solution, but this solution is not optimal:
 
 ![Adding capacity/layers to the network](images/004-adding-capacity.png)
 
 ***How can we tell the solution isn't optimal?***
 
-  - The test loss is consistently much higher than the training loss
-  - The boundaries are not as we expect them (along the 4 quadrants): note the weird-shaped (rhombus) of the upper right quadrant.
-  - Whenever we click on the "regenerate" button (creating slightly different data-sets) the boundaries of the model shift. This tells us that the [generalization error](https://en.wikipedia.org/wiki/Generalization_error) is poor.
+  - The test loss is consistently ***much*** higher than the training loss
+  - The class-boundaries are not as we expect them (along the 4 quadrants): note the rhombus instead of square shaped of the upper right quadrant.
+  - Over-fitting is in effect: whenever we click on the "regenerate" button (creating slightly different data-sets) the boundaries of the model shift. This tells us that the [generalization error](https://en.wikipedia.org/wiki/Generalization_error) is poor. IOW: the expected out-of-sample error is large.
   - The hidden-layers (partial solutions):
     - Have a lot of overlaps/redundancies between them
     - Are not optimally oriented (vertically, horizontally, diagonally)
