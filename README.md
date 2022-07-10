@@ -105,8 +105,9 @@ increase model-complexity (add capacity in the form of hidden layers):
 
 ## Problem #3: Concentric Circles
 
-What if out two sets of dots are not simply/linearly separable like
-in the case of two concentric set of points
+What if our two sets of dots are not simply/linearly separable?
+
+Consider the case of two concentric set of points.
 
 As Rene Descartes already knew, the formula for a circle in euclidean
 2D space is $x^2 + y^2 = r^2$
