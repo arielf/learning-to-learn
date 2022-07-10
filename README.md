@@ -1,4 +1,4 @@
-# Learning to learn with TensorFlow playground (Spoiler!)
+# Learning to learn with TensorFlow playground (Spoilers ahead!)
 
 ## Introduction to tensor-flow playground
 [The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool to experiment with simple neural nets.
@@ -14,9 +14,9 @@ in the model quality.
 The challenge is to create the best model possible for each of the problems
 presented.
 
-***Note:*** These are spoilers. A set of "cheats" or near perfect
-solutions. You're encouraged to solve the problems yourself before
-looking at the solutions below.
+***Note:*** these are spoilers. A set of "cheats" for near perfect
+solutions. You're encouraged to try and solve the problems yourself,
+before looking at the solutions below.
 
 ## A trivial classifier
 
@@ -77,8 +77,8 @@ but this solution is not optimal:
 ***How can we tell the solution isn't optimal?***
 
   - The test loss is consistently much higher than the training loss
-  - The boundaries are not as we expect them (along the 4 quadrants)
-  - Whenever we click or "regenerate" (making slightly different data-sets) the boundaries shift
+  - The boundaries are not as we expect them (along the 4 quadrants): note the weird-shaped (rhombus) of the upper right quadrant.
+  - Whenever we click on the "regenerate" button (creating slightly different data-sets) the boundaries of the model shift. This tells us that the [generalization error](https://en.wikipedia.org/wiki/Generalization_error) is poor.
   - The hidden-layers (partial solutions):
     - Have a lot of overlaps/redundancies between them
     - Are not optimally oriented (vertically, horizontally, diagonally)
@@ -89,15 +89,16 @@ we switch from the two original coordinates (`x1, x2`)
 to a single multiplicative input feature (`x1 * x2`).
 This projection of the input space to a new coordinate system
 perfectly describes the 4-quadrant mapping into the two diagonal
-sets, and results in a near perfect solution:
+sets, and results in a near perfect solution without any need to
+increase model-complexity (add capacity in the form of hidden layers):
 
 ![Simple Classifier Solution](images/002-simple-classifier.png)
 
 ***Notes:***
 
   - Again once we pick the best and most relevant input feature, we get to near zero losses on both train and test sets after less than 500 iterations
-  - Again, there's no need to use hidden layers
-  - Again convergence to a great solution is both fast and smooth
+  - Again, there's no need for hidden layers
+  - Again, convergence to a great solution is both fast and smooth
   - The test and training loss are very close during training and end-up equal to each other
   - Because the boundaries between the clusters are much narrower, choices of smaller values for both the learning & regularization rates are helpful
   - The input feature choice is the most critical choice for a great solution
