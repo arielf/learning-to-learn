@@ -1,4 +1,4 @@
-# Learning to learn with TensorFlow playground (Spoilers ahead!)
+# Learning to learn with TensorFlow playground (spoilers ahead!)
 
 ## Introduction to tensor-flow playground
 [The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool to experiment with simple neural nets.
