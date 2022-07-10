@@ -105,6 +105,23 @@ increase model-complexity (add capacity in the form of hidden layers):
 
 ## Problem #3: Concentric Circles
 
+What if out two sets of dots are not simply/linearly separable like
+in the case of two concentric set of points
+
+As Rene Descartes already knew, the formula for a circle in euclidean
+2D space is $x^2 + y^2 = r^2$
+
+This gives us a quick hint at how to solve this particular
+classification problem perfectly, in a minimalistic way.
+
+Again, there's no need for hidden layers, although we could come up
+with many good solutions by adding inputs and capacity, they wouldn't
+be perfect, nor minimal (in the model-simplicity sense).
+
+Here's the optimal solution:
+
+![Concentric Circle Solution](images/005-concentric-circles.png)
+
 ## Problem #4: Concentric (and overlapping) Spirals
 
 ## Indicators of good/great/perfect solutions
