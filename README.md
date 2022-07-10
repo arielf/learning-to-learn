@@ -1,4 +1,4 @@
-# Learning to learn with TensorFlow playground
+# Learning to learn with TensorFlow playground (Spoiler!)
 
 ## Introduction to tensor-flow playground
 [The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool to experiment with simple neural nets.
@@ -14,6 +14,9 @@ in the model quality.
 The challenge is to create the best model possible for each of the problems
 presented.
 
+***Note:*** These are spoilers. A set of "cheats" or near perfect
+solutions. You're encouraged to solve the problems yourself before
+looking at the solutions below.
 
 ## A trivial classifier
 
@@ -48,22 +51,30 @@ in the original input space.
 
 ## 4-clusters with x1, x2 overlap
 
-Continuing with the 2nd simplest problem:
+Continuing with the 2nd simplest problem, 4-clusters with x1, x2
+overlap.
 
-![Simple Classifier Solution](images/002-simple-classifier.png)
-
-Again, the two clusters are clearly separable in the original input space.
-but the boundary is more complex since we now have 4 instead of 2 clusters.
+Again, the clusters are clearly separable in the original input space,
+But the boundary is more complex since we now have 4 instead of 2 clusters.
 
 We need two lines, one horizontal and one vertical to achieve the separation.
 
-The choice of the input feature is critical: leaving the original
-input features would result in a complete inability to learn. The
-learning curves would be moving sideways rather than dropping and
-converging towards zero.
+The choice of the input feature is critical: keeping the original
+input features (`x1, x2`) results in a complete inability to learn.
+The learning curves are moving sideways rather than dropping and
+converging towards zero as can be seen here:
 
-The best input feature is the multiplicative feature (`x1 * x2`)
-instead of the original coordinates.
+![Inability to converge](images/003-unable-to-converge.png)
+
+Realizing that the best and most-relevant input feature is the
+multiplicative feature instead of the original coordinates,
+we switch from the two original coordinates (`x1, x2`)
+to a single multiplicative input feature (`x1 * x2`).
+This projection of the input space to a new coordinate system
+perfectly describes the 4-quadrant mapping into the two diagonal
+sets, and results in a near perfect solution:
+
+![Simple Classifier Solution](images/002-simple-classifier.png)
 
 ***Notes:***
 
