@@ -18,9 +18,10 @@ presented.
 solutions. You're encouraged to try and solve the problems yourself,
 before looking at the solutions below.
 
-## A trivial classifier
+## Problem #1: a trivial classifier in 2D
 
-Let's start with the simplest problem: 2 diagonally opposite clusters.
+Let's start with the simplest problem: 2 diagonally opposite clusters
+in two dimensions `(x1, x2)`.
 
 The challenge is to design a learner that will separate the
 orange vs. blue clusters in an optimal way.
@@ -49,7 +50,7 @@ in the original input space.
     - It lies half-way between the closest points in the two sets (the support vectors)
     - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
-## 4-clusters with x1, x2 overlap
+## Problem #2: 2-pairs of clusters with x1, x2 overlap
 
 Continuing with the 2nd simplest problem, 4-clusters with `(x1, x2)`
 overlap.
@@ -102,6 +103,10 @@ increase model-complexity (add capacity in the form of hidden layers):
   - Because the boundaries between the clusters are much narrower, choices of smaller values for both the learning & regularization rates are helpful
   - The input feature choice is the most critical choice for a great solution
 
+## Problem #3: Concentric Circles
+
+## Problem #4: Concentric (and overlapping) Spirals
+
 ## Indicators of good/great/perfect solutions
 
 ### Final test and test error
@@ -114,8 +119,7 @@ increase model-complexity (add capacity in the form of hidden layers):
 
 ## Importance of the input features
 
-## The concentric spiral problem
-
 ### Coordinate projections
 
-WIP ...
+## !!! Work in Progress !!!
+
