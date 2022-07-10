@@ -17,27 +17,34 @@ presented.
 
 ## A trivial classifier
 
-Let's start with the simplest classifier. The challenge is to
-design a learner that will separate the orange vs. blue clusters
-in an optimal way. With the right input-features and parameter choices
-we get a perfect classifier very quickly.
+Let's start with the simplest problem: 2 diagonally opposite clusters.
+
+The challenge is to design a learner that will separate the
+orange vs. blue clusters in an optimal way.
+
+With the right input-features & parameter choices we get a perfect
+classifier very quickly.
 
 ![Trivial Classifier Solution](images/001-simplest-classifier.png)
 
-Since the two sets of points are clearly and directly
-linearly-separable in the original space. Note that:
+The two clusters are clearly and directly linearly-separable
+in the original input space.
+
+Note that:
 
   - There's no need to transform any original feature
   - Less is more: two input features (`x1`, `x2`) are sufficient
   - No need to add any hidden layer: the input and output layers can be directly connected
   - We can learn fast, using a high learning rate without fear of early overfitting
-  - Test loss is lower than train loss; this is rare and indicates that
-    our model is not too complex nor too simple and has great generalization power.
-  - The boundary between the clusters is smooth, clear:
-   - It lies half-way between the sets
-   - Its orientation (from corner to corner) is nearly perfect.
 
 ## How can we tell we have a good/great model?
+
+  - Both learning curves (train & test) drop sharply and quickly towards near zero
+  - We see no upward-spikes in the learning curves
+  - Final test loss is lower than train loss; this is very unusual/rare. It indicates that our model is not too complex nor too simple and has great generalization power.
+  - The boundary between the orange and blue clusters is smooth & clear:
+   - It lies half-way between the closest points in the two sets (the support vectors)
+   - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
 
 ### Final test and test error
