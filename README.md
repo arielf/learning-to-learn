@@ -22,7 +22,7 @@ design a learner that will separate the orange vs. blue clusters
 in an optimal way. With the right input-features and parameter choices
 we get a perfect classifier very quickly.
 
-![images/001-simplest-classifier.png]
+![Trivial Classifier Solution](images/001-simplest-classifier.png)
 
 Since the two sets of points are clearly and directly
 linearly-separable in the original space. Note that:
