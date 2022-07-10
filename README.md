@@ -30,7 +30,7 @@ classifier very quickly.
 The two clusters are clearly and directly linearly-separable
 in the original input space.
 
-Note that:
+***Notes:***
 
   - There's no need to transform any original feature
   - Less is more: two input features (`x1`, `x2`) are sufficient
@@ -46,6 +46,33 @@ Note that:
     - It lies half-way between the closest points in the two sets (the support vectors)
     - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
+## 4-clusters with x1, x2 overlap
+
+Continuing with the 2nd simplest problem:
+
+![Simple Classifier Solution](images/002-simple-classifier.png)
+
+Again, the two clusters are clearly separable in the original input space.
+but the boundary is more complex since we now have 4 instead of 2 clusters.
+
+We need two lines, one horizontal and one vertical to achieve the separation.
+
+The choice of the input feature is critical: leaving the original
+input features would result in a complete inability to learn. The
+learning curves would be moving sideways rather than dropping and
+converging towards zero.
+
+The best input feature is the multiplicative feature (`x1 * x2`)
+instead of the original coordinates.
+
+***Notes:***
+
+  - Again once we pick the best and most relevant input feature, we get to near zero losses on both train and test sets after less than 500 iterations
+  - Again, there's no need to use hidden layers
+  - Again convergence to a great solution is both fast and smooth
+  - The test and training loss end-up equal
+  - Because the boundaries between the clusters are much narrower, choices of smaller values for both the learning & regularization rates are helpful
+  - The input feature choice is the most critical choice for a great solution
 
 ### Final test and test error
 ### Convergence speed
