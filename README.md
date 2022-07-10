@@ -109,8 +109,10 @@ What if our two sets of dots are not simply/linearly separable?
 
 Consider the case of two concentric set of points.
 
-As Rene Descartes already knew, the formula for a circle in euclidean
-2D space is $x^2 + y^2 = r^2$
+As Rene Descartes already knew, the formula for a circle in euclidian
+2D space is $x^2 + y^2 = R^2$  where `R` is the radius of the circle
+whose center is at the origin. The cartesian coordinate system
+is called after Descartes.
 
 This gives us a quick hint at how to solve this particular
 classification problem perfectly, in a minimalistic way.
