@@ -76,7 +76,7 @@ hidden-layers. This allows the training to converge to a (near zero loss) soluti
 ***How can we tell the solution isn't optimal?***
 
   - The test loss is consistently ***much*** higher than the training loss
-  - The class-boundaries are not as we expect them (along the 4 quadrants): note the rhombus instead of square shaped of the upper right quadrant.
+  - The class-boundaries are not as we expect them (along the 4 quadrants): note the rhombus (instead of square) shape of the upper-right quadrant.
   - Over-fitting is in effect: whenever we click on the "regenerate" button (creating slightly different data-sets) the boundaries of the model shift. This tells us that the [generalization error](https://en.wikipedia.org/wiki/Generalization_error) is poor. IOW: the expected out-of-sample error is large.
   - The hidden-layers (partial solutions):
     - Have a lot of overlaps/redundancies between them
