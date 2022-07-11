@@ -51,14 +51,14 @@ in the original input space.
 ***Notes:***
 
   - There's no need to transform any original feature
-  - Less is more: two input features (`x1`, `x2`) are sufficient
-  - No need to add any hidden layer: the input and output layers can be directly connected
-  - We can learn fast, using a high learning rate without fear of early overfitting
+  - Less is more: two input features (`x1`, `x2`) are sufficient for a perfect solution. We can completely ignore all the other five input features. They don't contribute added value to the 1st 2.
+  - There's no need for hidden layers: the input and output layers can be directly connected
+  - We can learn fast, using a high learning-rate without fear of overfitting
 
 ## How can we tell we have a good/great model?
 
   - At the top right of the screenshot there's a learning curve: loss over time
-    - Both learning curves (train & test) overlap (agree with each other)
+    - Both learning curves (train & test) overlap (agree with each other) over time
     - The curve is L-shaped: it drops sharply and quickly towards near zero loss very early in the process
     - We see no upward-spikes in the learning curves
     - The final test loss is lower than train loss; this is very unusual/rare. It indicates that our model is not too complex nor too simple and has great generalization power.
