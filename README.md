@@ -258,10 +258,18 @@ will improve the most.
 Of course, many problems have no trivial solutions which means this
 shortcut cannot be taken. In that case, there's no escape from
 brute-forcing the data, and guarding against overfitting at every
-local boundary. Essentially, any large-capacity model, simply
-assembles a large number of piece-wise local boundaries between classes.
-In essence, it simply memorises many examples.
+local boundary.
+
+Essentially, any large-capacity model, is a collection of a large number
+of piece-wise local near-linear boundaries between classes.
+In essence, complex models with millions or billions of parameters,
+simply memorise their data well.
 
 Adding capacity by complicating models have an exponentially
 growing cost. There's no escape from the
-[curse-of-dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality).
+[curse-of-dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality). Such models learn the data they've seen, but real generalization
+into the exponentially larger input and solution spaces is not
+actually achieved.
+
+We seem to be far away from achieving AGI (Artificial General
+Intelligence), using our current techniques.
