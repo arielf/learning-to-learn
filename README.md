@@ -226,7 +226,7 @@ in deep-training.
 | Problem          | Symptom/red-flag           | Possible Solutions       |
 |:-------------    |:----------------------     |:------------------       |
 | Under-fitting    | slow/no loss convergence:<br>loss-curve going sideways                                                     | Add relevant features<br>Add training data<br>Decrease regularization<br>Increase capacity<br>Increase learning rate   |
-| Over-fitting     | Gap between train & test loss<br>where train-loss is lower <br>Spikes in loss-curve<br>Irregular inter-class boundary<br>Non equi-distant class boundary                                   | Decrease learning rate<br>Add test data<br>Increase regularization<br>Decrease capacity<br>Non equi-distant class boundary |
+| Over-fitting     | Gap between train & test loss<br>where train-loss is lower <br>Spikes in loss-curve<br>Irregular inter-class boundary<br>Non equi-distant class boundary                                   | Decrease learning rate<br>Add test data<br>Increase regularization<br>Decrease capacity |
 
 
 ## Summary: indicators of good/great/perfect solutions
