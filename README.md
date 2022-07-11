@@ -12,8 +12,8 @@ Model parameters you can control are:
 
   - Which initial input features are fed into the network
   - Model complexity or capacity to learn:
-    - Number of hidden layers in the network
-    - Number of nodes in each hidden layer
+    - Number of hidden-layers in the network
+    - Number of nodes in each hidden-layer
   - Choice of activation function (ReLU, tanh, sigmoid, linear)
   - Learning rate
   - Regularization type (L1, L2) and rate
@@ -29,19 +29,20 @@ The challenge is to create the best model possible for each of the problems
 presented.
 
 ***Note:*** these are spoilers. A set of "cheats" for near perfect
-solutions. You're encouraged to try and solve the problems yourself,
+solutions. You're encouraged to try and
+[solve the problems yourself](https://playground.tensorflow.org/),
 before looking at the solutions below.
 
 ## Problem #1: a trivial classifier in 2D
 
 The simplest problem in the set is to classify/separate
-2 diagonally opposite clusters in two dimensions $(x1, x2)$
+two diagonally opposite clusters in two dimensions $(x1, x2)$
 
-Challenge: design a learner that will separate the orange
-from the blue clusters, in an optimal way.
+Challenge: design a learner that will separate the two
+classes (orange vs blue dots) in an optimal way.
 
 With the right input-features & parameter choices we are
-able to get a perfect classifier, very quickly. Here it is:
+able to get a perfect classifier, very quickly. Here is the 1st solution:
 
 ![Trivial Classifier Solution](images/001-simplest-classifier.png)
 
@@ -51,8 +52,8 @@ in the original input space.
 ***Notes:***
 
   - There's no need to transform any original feature
-  - Less is more: two input features (`x1`, `x2`) are sufficient for a perfect solution. We can completely ignore all the other five input features. They don't contribute added value to the 1st 2.
-  - There's no need for hidden layers: the input and output layers can be directly connected
+  - Less is more: two input-features (`x1`, `x2`) are sufficient for a perfect solution. We can completely ignore all the other five input-features. They don't contribute added value to the 1st two input-features.
+  - There's no need for hidden-layers: the input and output layers can be directly connected
   - We can learn fast, using a high learning-rate without fear of overfitting
 
 ## How can we tell we have a good/great model?
@@ -118,7 +119,7 @@ The model classifies correctly and generally, even though it is much simpler:
 ***Again, we can tell we have a great model because:***
 
   - We have near zero losses on both train and test sets after less than 500 iterations
-  - There's no need for hidden layers (minimalism)
+  - There's no need for hidden-layers (minimalism)
   - Convergence to the solution is both fast and smooth
   - The test and training loss are running close during training, and end-up equal to each other at the end
 
@@ -145,7 +146,7 @@ is named after Descartes.
 This provides the critical insight on how to solve this particular
 classification problem perfectly, and in a minimalistic way.
 
-Again, there's no need for hidden layers, although we could come up
+Again, there's no need for hidden-layers, although we could come up
 with many solutions by adding inputs and capacity, they wouldn't
 be perfect, nor minimal (in the model-simplicity sense).
 
@@ -184,7 +185,7 @@ see why before continuing):
   - The boundary between the classes:
     - Is not smooth: it has many bumps and irregularities
     - It is not equi-distant from the two classes. In some locations it almost touches the data-points while in others, it is far-away from the nearest class
-  - Some of the nodes in the hidden layers are almost pure white. This indicates
+  - Some of the nodes in the hidden-layers are almost pure white. This indicates
     - Excess capacity / redundancy
     - Low contribution of these nodes to the final solution
   - The ratio of training to test data is too high (80%) leaving insufficient data for out-of-sample generalization
