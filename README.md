@@ -109,10 +109,12 @@ What if our two sets of dots are not simply/linearly separable?
 
 Consider the case of two concentric set of points.
 
-As Rene Descartes already knew, the formula for a circle in euclidian
-2D space is $x^2 + y^2 = R^2$  where `R` is the radius of the circle
+As
+[René Descartes](https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes)
+(1596 - 1650) already knew, the formula for a circle in Euclidean
+2D space is $x^2 + y^2 = R^2$  where $R$ is the radius of the circle
 whose center is at the origin. The cartesian coordinate system
-is called after Descartes.
+is named after Descartes.
 
 This gives us a quick hint at how to solve this particular
 classification problem perfectly, in a minimalistic way.
@@ -128,20 +130,22 @@ Here's the optimal solution:
 ## Problem #4: Concentric (and interleaved) Spirals
 
 Unlike all the previous 3 problems, an optimal solution to the
-4th an most difficult classification problem, is much harder to come by.
+4th & most difficult classification problem in this set,
+is harder to come by.
 
-There's no subset of (available) input features that can define a smooth
-boundary between the two interleaved spirals.
+There's no subset of (available) input features that can lead
+to a smooth boundary between the two interleaved spirals.
 
 This forces us to try and construct a good separating boundary
 out of many disjoint linear local functions. The only way to do this
-with the given input features is by increasing capacity, i.e. adding
+with the given input features is to increase capacity, i.e. adding
 hidden-layers and increasing model complexity.
 
 In particular, it is hard to get to a good solution without making
 some earlier hidden-layers wider than the input layer itself.
 The purpose of making early layers wider, is to try and generate
-stronger early signals by crossing (combining) the original features.
+stronger early cross-features by combining the original features
+in all possible ways.
 
 Here's a solution that is deceiving: the final loss is a very low
 test loss of 0.001. Yet it is obvious that the model is bad (try to
@@ -170,7 +174,7 @@ _by random chance_ to 0.001.
 Here is a _much better_ solution.  Despite the misleadingly high final loss
 (0.021), the boundary is much smoother an equi-distant from the two classes:
 
-![Interleaved Spirals 0.021 solution](images/images/006-spirals-0.021.png)
+![Interleaved Spirals 0.021 solution](images/006-spirals-0.021.png)
 
 ***Unlike in the previous solution:***
 
@@ -225,10 +229,11 @@ in deep-training.
 |                  |                            | Add training data        |
 |                  |                            | Decrease regularization  |
 |                  |                            | Increase capacity        |
+|------------------|----------------------------|--------------------------|
 | Over-fitting     | Gap between train & test loss | Decrease learning rate |
-|                  | where train-loss is lower  | Add test data            |
-|                  | Spikes in loss-curve       | Increase regularization  |
-|                  | Irregular inter-class boundary | Decrease capacity    |
+|                  | where train-loss is lower     | Add test data          |
+|                  | Spikes in loss-curve          | Increase regularization  |
+|                  | Irregular inter-class boundary  | Decrease capacity   |
 |                  | Non equi-distant class boundary |                     |
 
 
