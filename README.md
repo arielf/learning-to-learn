@@ -231,13 +231,19 @@ in deep-training.
 
 ## Summary: indicators of good/great/perfect solutions
 
-  - Low final test and test error
-  - Convergence speed: loss (both train & test) decreasing early & fast
+  - Low final train and test loss
+  - Convergence speed: loss (both train & test)
+    - Decreasing early & fast
+    - Gradually leveling out as convergence to near-zero takes place
   - Smoothness of the learning curve: no spikes, smooth convergence
-  - Train vs test gap: no big gap, test follow train loss downwards
-  - Clean boundaries between classes, no bumps & irregularities
+  - Train vs test gap: no big gap, test closely follows train loss downwards
+  - Clean boundaries between classes:
+    - No bumps & irregularities
+    - Boundaries are equi-distant from opposite-class closest points
+  - No excess capacity:
+    - Uniform weights in early layers (all features contributing to solution)
 
-## Colophon
+## Closing thoughts
 
 The bigger a neural-net is, the more complex the model and the slower
 it will take to learn (converge the loss towards acceptable low levels).
