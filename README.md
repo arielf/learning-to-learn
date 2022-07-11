@@ -196,10 +196,10 @@ we got in the 1st 3 classification problems?
 Yes, and representation is paramount. If we could project
 the original cartesian coordinates `(x1, x2)` into
 [polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system)
- $(r, phi)$:
+ $(r, \phi)$:
 
   - $r$ - distance from the origin
-  - $phi$ - angle from the positive side of the X-axis
+  - $\phi$ - angle from the positive side of the X-axis
 
 and add these to the allowed input features we would be in a much
 better starting position.
