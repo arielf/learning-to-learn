@@ -136,6 +136,8 @@ What if our two sets of dots are not simply/linearly separable?
 
 Consider the case of two concentric set of points.
 
+Trying to separate the two sets with straight lines won't work well.
+
 As
 [René Descartes](https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes)
 (1596 - 1650) already knew, the formula for a circle in Euclidean
@@ -150,13 +152,17 @@ Again, there's no need for hidden-layers, although we could come up
 with many solutions by adding inputs and capacity, they wouldn't
 be perfect, nor minimal (in the model-simplicity sense).
 
-Here's the optimal solution using Descartes circle formula:
+The most relevant & strongest input features are: $x1^2$ and $x2^2$.
+Once the sum $x1^2 + x2^2$ exceeds a certain threshold, we have
+switched class from blue to orange.
+
+Here's the optimal solution which relies on Descartes circle formula.
 
 ![Concentric Circle Solution](images/005-concentric-circles.png)
 
 ## Problem #4: Concentric, interleaved Spirals
 
-Unlike all the previous 3 problems, an optimal solution to the
+Unlike in the previous 3 problems, an optimal solution to the
 4th & most difficult classification problem in this set,
 is harder to come by.
 
@@ -166,13 +172,14 @@ to a smooth boundary between the two interleaved spirals.
 This forces us to try and construct a good separating boundary
 out of many disjoint linear local functions. The only way to do this
 with the given input features is to increase capacity, i.e. adding
-hidden-layers and increasing model complexity.
+hidden-layers. These layers lead to approximate functions to transform
+the input into the desired output. IOW: they increase model complexity.
 
 In particular, it is hard to get to a good solution without making
 some earlier hidden-layers wider than the input layer itself.
 The purpose of making early layers wider, is to try and generate
 stronger early cross-features by combining the original features
-in all possible ways.
+in many possible different ways.
 
 Here's a solution that is deceiving: the final loss is a very low
 test loss of 0.001. Yet it is obvious that the model is bad (try to
@@ -229,23 +236,23 @@ the original cartesian coordinates `(x1, x2)` into
   - $\phi$ - angle from the positive side of the X-axis
 
 and add these to the allowed input features we would be in a much
-better starting position to easily separate the entangled spirals.
+better starting position to easily separate the two entangled spirals.
 
 This is reminiscent of the
 [kernel-trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) in
 [SVM (Support Vector Machines)](https://en.wikipedia.org/wiki/Support-vector_machine)
-where transforming a two-class data-set in N-dimensions, into a
+where projecting a two-class data-set in N-input-dimensions, into a
 higher-dimensional space, often makes the classes more easily separable.
 
 ## Going beyond coordinate projections
 
 Other ideas could make the solution converge even smoother & faster:
 
-  - Combine/cross polar coordinates with periodic features: $(sin(x1), sin(x2))$
+  - Combine/cross polar-coordinates with periodic features: $(sin(x1), sin(x2))$
   - Automatically drop-out redundant (almost white) nodes would help avoid irrelevant noise
   - Being able to draw "attention": short circuit early spiral-detecting nodes, to later layers skipping layers that may randomly attenuate and perturb the best signals.
 
-All of these are effective - and by now pretty common - techniques
+All of these are effective, and by now pretty common, techniques
 to learn more effectively in deep-learning.
 
 ## Summary table: how to improve models
