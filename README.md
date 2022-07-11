@@ -56,7 +56,7 @@ in the original input space.
   - There's no need for hidden-layers: the input and output layers can be directly connected
   - We can learn fast, using a high learning-rate without fear of overfitting
 
-## How can we tell we have a good/great model?
+## How can we tell we have a good model?
 
   - At the top right of the screenshot there's a learning curve: loss over time
     - Both learning curves (train & test) overlap (agree with each other) over time
@@ -116,7 +116,7 @@ The model classifies correctly and generally, even though it is much simpler:
 
 ![Simple Classifier Solution](images/002-simple-classifier.png)
 
-***Again, we can tell we have a great model because:***
+***Again, we can tell we have a good model because:***
 
   - We have near zero losses on both train and test sets after less than 500 iterations
   - There's no need for hidden-layers (minimalism)
@@ -128,7 +128,7 @@ narrower, choices of smaller values for both the learning &
 regularization rates are needed here.
 
 We see again that the choice of input feature(s) proves to be the most
-critical choice we have to make in order to achieve a great solution.
+critical choice we have to make in order to achieve a good solution.
 
 ## Problem #3: Concentric Circles
 
@@ -263,7 +263,7 @@ to learn more effectively in deep-learning.
 | Over-fitting     | Gap between train & test loss<br>where train-loss is lower <br>Spikes in loss-curve<br>Irregular inter-class boundary<br>Non equi-distant class boundary                                   | Decrease learning rate<br>Add test data<br>Increase regularization<br>Decrease capacity |
 
 
-## Summary: indicators of good, great, & perfect solutions
+## Summary: indicators of good models
 
   - Low final train and test loss
   - Convergence speed: loss (both train & test)
@@ -283,10 +283,10 @@ to learn more effectively in deep-learning.
 The bigger a neural-net is, the more complex the model and the slower
 it will take to learn (converge the loss towards acceptable low levels).
 
-The greatest shortcut to a great model is the relevancy of the inputs.
+The best shortcut to a great model is the relevancy of the inputs.
 
 If you can pre-process, project or otherwise transform inputs into
-relevant features, or add attention, and drop-off, so great features
+relevant features, or add attention, and drop-off, so good features
 are better preserved, and weak ones get discarded, your model
 will improve the most.
 
