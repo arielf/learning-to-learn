@@ -57,10 +57,12 @@ in the original input space.
 
 ## How can we tell we have a good/great model?
 
-  - Both learning curves (train & test) drop sharply and quickly towards near zero
-  - We see no upward-spikes in the learning curves
-  - Final test loss is lower than train loss; this is very unusual/rare. It indicates that our model is not too complex nor too simple and has great generalization power.
-  - The **boundary** between the orange and blue clusters is smooth & clear:
+  - At the top right of the screenshot there's a learning curve: loss over time
+    - Both learning curves (train & test) overlap (agree with each other)
+    - The curve is L-shaped: it drops sharply and quickly towards near zero loss very early in the process
+    - We see no upward-spikes in the learning curves
+    - The final test loss is lower than train loss; this is very unusual/rare. It indicates that our model is not too complex nor too simple and has great generalization power.
+  - In the output, the right-side square image, the **boundary** between the orange and blue clusters is smooth & clear:
     - It lies half-way between the closest points in the two sets (the support vectors)
     - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
