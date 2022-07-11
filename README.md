@@ -3,13 +3,27 @@
 ## Introduction to tensor-flow playground
 [The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool to experiment with simple neural nets.
 
-Given a small number of problems in 2-dimensions (x1, x2),
+Given a small number of problems in 2-dimensions $(x1, x2)$,
 you're asked to design a good classifier / regressor model that will
-correctly predict the (output) value of every point in input space
+correctly classify the output value of every point in input space
 by tinkering with various model parameters.
 
-Making the right model-design decisions can result in dramatic differences
-in the model quality.
+Model parameters you can control are:
+
+  - Which initial input features are fed into the network
+  - Model complexity or capacity to learn:
+    - Number of hidden layers in the network
+    - Number of nodes in each hidden layer
+  - Choice of activation function (ReLU, tanh, sigmoid, linear)
+  - Learning rate
+  - Regularization type (L1, L2) and rate
+  - Size of each mini-batch
+  - Ratio of test to train examples in each minibatch
+  - Level of added noise
+
+Making the right model-design decisions by picking optimal values
+for the above parameters can result in dramatic differences
+in final model quality.
 
 The challenge is to create the best model possible for each of the problems
 presented.
@@ -20,14 +34,14 @@ before looking at the solutions below.
 
 ## Problem #1: a trivial classifier in 2D
 
-Let's start with the simplest problem: 2 diagonally opposite clusters
-in two dimensions `(x1, x2)`.
+The simplest problem in the set is to classify/separate
+2 diagonally opposite clusters in two dimensions $(x1, x2)$
 
-The challenge is to design a learner that will separate the
-orange vs. blue clusters in an optimal way.
+Challenge: design a learner that will separate the orange
+from the blue clusters, in an optimal way.
 
-With the right input-features & parameter choices we get a perfect
-classifier very quickly.
+With the right input-features & parameter choices we are
+able to get a perfect classifier, very quickly. Here it is:
 
 ![Trivial Classifier Solution](images/001-simplest-classifier.png)
 
