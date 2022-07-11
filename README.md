@@ -81,43 +81,53 @@ We need two lines, one horizontal and one vertical to achieve the separation.
 The choice of the input feature is critical: keeping the original
 input features (`x1, x2`) results in a complete inability to learn.
 The learning curves are moving sideways rather than dropping and
-converging towards zero as can be seen here:
+converging towards zero as can be seen here. The loss is close to 0.5
+meaning (binary) classification is wrong about half the time. It is
+as good as a random guess.
 
 ![Inability to converge](images/003-unable-to-converge.png)
 
-We could "add capacity" complicating the model by adding
-hidden-layers. This allows the training to converge to a (near zero loss) solution, but this solution is not optimal:
+We could "add capacity" (complicating the model) by adding
+hidden-layers. This allows the training to converge
+to a (near zero loss) solution, but this solution is far from optimal:
 
 ![Adding capacity/layers to the network](images/004-adding-capacity.png)
 
 ***How can we tell the solution isn't optimal?***
 
-  - The test loss is consistently ***much*** higher than the training loss
+  - The test-loss is _much_ higher than the training-loss (0.018 vs 0.003)
+  - While training, we can see the train error leading down with test-loss not being able to keep up
   - The class-boundaries are not as we expect them (along the 4 quadrants): note the rhombus (instead of square) shape of the upper-right quadrant.
   - Over-fitting is in effect: whenever we click on the "regenerate" button (creating slightly different data-sets) the boundaries of the model shift. This tells us that the [generalization error](https://en.wikipedia.org/wiki/Generalization_error) is poor. IOW: the expected out-of-sample error is large.
   - The hidden-layers (partial solutions):
     - Have a lot of overlaps/redundancies between them
-    - Are not optimally oriented (vertically, horizontally, diagonally)
+    - Are not optimally oriented (vertically, horizontally, diagonally) like the original classes
 
 Realizing that the best and most-relevant input feature is the
 multiplicative feature instead of the original coordinates,
 we switch from the two original coordinates (`x1, x2`)
-to a single multiplicative input feature (`x1 * x2`).
+to a _single_ multiplicative input feature (`x1 * x2`).
 This projection of the input space to a new coordinate system
-perfectly describes the 4-quadrant mapping into the two diagonal
-sets, and results in a near perfect solution without any need to
-increase model-complexity (add capacity in the form of hidden layers):
+perfectly describes the 4-quadrant mapping into the two diagonal sets,
+and results in a near perfect solution without any need for hidden-layers.
+The model classifies correctly and generally, even though it is much simpler:
+
 
 ![Simple Classifier Solution](images/002-simple-classifier.png)
 
-***Notes:***
+***Again, we can tell we have a great model because:***
 
-  - Again once we pick the best and most relevant input feature, we get to near zero losses on both train and test sets after less than 500 iterations
-  - Again, there's no need for hidden layers
-  - Again, convergence to a great solution is both fast and smooth
-  - The test and training loss are very close during training and end-up equal to each other
-  - Because the boundaries between the clusters are much narrower, choices of smaller values for both the learning & regularization rates are helpful
-  - The input feature choice is the most critical choice for a great solution
+  - We have near zero losses on both train and test sets after less than 500 iterations
+  - There's no need for hidden layers (minimalism)
+  - Convergence to the solution is both fast and smooth
+  - The test and training loss are running close during training, and end-up equal to each other at the end
+
+***Note:*** because the boundaries between the clusters are much
+narrower, choices of smaller values for both the learning &
+regularization rates are needed here.
+
+We see again that the choice of input feature(s) proves to be the most
+critical choice we have to make in order to achieve a great solution.
 
 ## Problem #3: Concentric Circles
 
@@ -132,18 +142,18 @@ As
 whose center is at the origin. The cartesian coordinate system
 is named after Descartes.
 
-This gives us a quick hint at how to solve this particular
-classification problem perfectly, in a minimalistic way.
+This provides the critical insight on how to solve this particular
+classification problem perfectly, and in a minimalistic way.
 
 Again, there's no need for hidden layers, although we could come up
-with many good solutions by adding inputs and capacity, they wouldn't
+with many solutions by adding inputs and capacity, they wouldn't
 be perfect, nor minimal (in the model-simplicity sense).
 
-Here's the optimal solution:
+Here's the optimal solution using Descartes circle formula:
 
 ![Concentric Circle Solution](images/005-concentric-circles.png)
 
-## Problem #4: Concentric (and interleaved) Spirals
+## Problem #4: Concentric, interleaved Spirals
 
 Unlike all the previous 3 problems, an optimal solution to the
 4th & most difficult classification problem in this set,
