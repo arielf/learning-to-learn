@@ -212,7 +212,7 @@ Here is a _much better_ solution.  Despite the misleadingly high final loss
 
 ***Unlike in the previous solution:***
 
-  - The ratio of training to test data is much better (divided 50%/50%)
+  - The ratio of training to test data is much better (divided 50%, 50%)
   - The final test & train losses are equal (0.021)
   - The train & test loss convergence curves are closer to each other and more consistent
   - We see almost no loss spikes along the learning loss curves
@@ -248,7 +248,7 @@ higher-dimensional space, often makes the classes more easily separable.
 
 Other ideas could make the solution converge even smoother & faster:
 
-  - Combine/cross polar-coordinates with periodic features: $(sin(x1), sin(x2))$
+  - Combine/cross the polar-coordinates with periodic-features: $(sin(r), sin(\phi))$
   - Automatically drop-out redundant (almost white) nodes would help avoid irrelevant noise
   - Being able to draw "attention": short circuit early spiral-detecting nodes, to later layers skipping layers that may randomly attenuate and perturb the best signals.
 
@@ -259,11 +259,11 @@ to learn more effectively in deep-learning.
 
 | Problem          | Symptom/red-flag           | Possible Solutions       |
 |:-------------    |:----------------------     |:------------------       |
-| Under-fitting    | slow/no loss convergence:<br>loss-curve going sideways                                                     | Add relevant features<br>Add training data<br>Decrease regularization<br>Increase capacity<br>Increase learning rate   |
+| Under-fitting    | slow/no loss convergence:<br>loss-curve going sideways                                                     | Add relevant/better features<br>Add training data<br>Decrease regularization<br>Increase capacity<br>Increase learning rate   |
 | Over-fitting     | Gap between train & test loss<br>where train-loss is lower <br>Spikes in loss-curve<br>Irregular inter-class boundary<br>Non equi-distant class boundary                                   | Decrease learning rate<br>Add test data<br>Increase regularization<br>Decrease capacity |
 
 
-## Summary: indicators of good/great/perfect solutions
+## Summary: indicators of good, great, & perfect solutions
 
   - Low final train and test loss
   - Convergence speed: loss (both train & test)
@@ -274,8 +274,9 @@ to learn more effectively in deep-learning.
   - Clean boundaries between classes:
     - No bumps & irregularities
     - Boundaries are equi-distant from opposite-class closest points
-  - No excess capacity:
-    - Uniform weights in early layers (all features contributing to solution)
+  - Right amount of capacity/complexity:
+    - No "all-white" nodes
+    - Uniform weights in early layers (all features contributing nearly equally to the solution)
 
 ## Closing thoughts
 
