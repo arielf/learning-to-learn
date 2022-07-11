@@ -178,11 +178,12 @@ Here is a _much better_ solution.  Despite the misleadingly high final loss
 
 ***Unlike in the previous solution:***
 
-  - The ratio of training to test data is much better here
-  - The final test and train losses are equal
-  - The train & test loss convergence curves are closer and more consistent
-  - We see almost no loss spikes
+  - The ratio of training to test data is much better (divided 50%/50%)
+  - The final test & train losses are equal (0.021)
+  - The train & test loss convergence curves are closer to each other and more consistent
+  - We see almost no loss spikes along the learning loss curves
   - There are no near white hidden-layer nodes. While a few are whiter than others, they seem to still contribute to the overall solution
+  - Early weights (links between nodes) are very uniform in their color
 
 All the above indicate that this model has a good (low) expected
 generalization error.
@@ -207,7 +208,7 @@ This is reminiscent of the
 [kernel-trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) in
 [SVM (Support Vector Machines)](https://en.wikipedia.org/wiki/Support-vector_machine)
 where transforming a two-class data-set in N-dimensions, into a
-higher-dimensional space, often makes it much more easily separable.
+higher-dimensional space, often makes the classes more easily separable.
 
 ## Going beyond coordinate projections
 
@@ -224,18 +225,8 @@ in deep-training.
 
 | Problem          | Symptom/red-flag           | Possible Solutions       |
 |:-------------    |:----------------------     |:------------------       |
-| Under-fitting    | slow/no loss convergence:  | Increase learning rate   |
-|                  | loss-curve going sideways  | Add relevant features    |
-|                  |                            | Add training data        |
-|                  |                            | Decrease regularization  |
-|                  |                            | Increase capacity        |
-|------------------|----------------------------|--------------------------|
-| Over-fitting     | Gap between train & test loss | Decrease learning rate |
-|                  | where train-loss is lower     | Add test data          |
-|                  | Spikes in loss-curve          | Increase regularization  |
-|                  | Irregular inter-class boundary  | Decrease capacity   |
-|                  | Non equi-distant class boundary |                     |
-
+| Under-fitting    | slow/no loss convergence:<br>loss-curve going sideways                                                     | Add relevant features<br>Add training data<br>Decrease regularization<br>Increase capacity<br>Increase learning rate   |
+| Over-fitting     | Gap between train & test loss<br>where train-loss is lower <br>Spikes in loss-curve<br>Irregular inter-class boundary<br>Non equi-distant class boundary                                   | Decrease learning rate<br>Add test data<br>Increase regularization<br>Decrease capacity<br>Non equi-distant class boundary |
 
 
 ## Summary: indicators of good/great/perfect solutions
