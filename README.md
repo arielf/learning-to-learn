@@ -202,7 +202,7 @@ the original cartesian coordinates `(x1, x2)` into
   - $\phi$ - angle from the positive side of the X-axis
 
 and add these to the allowed input features we would be in a much
-better starting position.
+better starting position to easily separate the entangled spirals.
 
 This is reminiscent of the
 [kernel-trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) in
@@ -219,7 +219,7 @@ Other ideas could make the solution converge even smoother & faster:
   - Being able to draw "attention": short circuit early spiral-detecting nodes, to later layers skipping layers that may randomly attenuate and perturb the best signals.
 
 All of these are effective - and by now pretty common - techniques
-in deep-training.
+to learn more effectively in deep-learning.
 
 ## Summary table: how to improve models
 
