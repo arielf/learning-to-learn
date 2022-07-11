@@ -125,21 +125,141 @@ Here's the optimal solution:
 
 ![Concentric Circle Solution](images/005-concentric-circles.png)
 
-## Problem #4: Concentric (and overlapping) Spirals
+## Problem #4: Concentric (and interleaved) Spirals
 
-## Indicators of good/great/perfect solutions
+Unlike all the previous 3 problems, an optimal solution to the
+4th an most difficult classification problem, is much harder to come by.
 
-### Final test and test error
-### Convergence speed
-### Smoothness of the learning curve
-### Train vs test gap
-### Clean boundaries between classes
-### Over-fitting vs under-fitting
-### Other generalization considerations
+There's no subset of (available) input features that can define a smooth
+boundary between the two interleaved spirals.
 
-## Importance of the input features
+This forces us to try and construct a good separating boundary
+out of many disjoint linear local functions. The only way to do this
+with the given input features is by increasing capacity, i.e. adding
+hidden-layers and increasing model complexity.
+
+In particular, it is hard to get to a good solution without making
+some earlier hidden-layers wider than the input layer itself.
+The purpose of making early layers wider, is to try and generate
+stronger early signals by crossing (combining) the original features.
+
+Here's a solution that is deceiving: the final loss is a very low
+test loss of 0.001. Yet it is obvious that the model is bad (try to
+see why before continuing):
+
+![Interleaved Spirals 0.001 solution](images/006-overfitted-spriral-0.001.png)
+
+***A few red-flags are tell-tell signs of over-fitting:***
+
+  - The boundary between the classes:
+    - Is not smooth: it has many bumps and irregularities
+    - It is not equi-distant from the two classes. In some locations it almost touches the data-points while in others, it is far-away from the nearest class
+  - Some of the nodes in the hidden layers are almost pure white. This indicates
+    - Excess capacity / redundancy
+    - Low contribution of these nodes to the final solution
+  - The ratio of training to test data is too high (80%) leaving insufficient data for out-of-sample generalization
+    - When the test set is too small, it is much easier to get a low (by chance) test-loss because the small number of test data-points just happens to agree with the 80% training majority.
+  - The loss convergence curve has spikes & sudden jumps.
+    - Inability to converge is notable especially near the end
+    - The loss-spikes seem to get larger during the last 1/3rd of the training time
+
+Given the above, it seems very likely that training was stopped
+at a particular iteration when the test-loss dropped
+_by random chance_ to 0.001.
+
+Here is a _much better_ solution.  Despite the misleadingly high final loss
+(0.021), the boundary is much smoother an equi-distant from the two classes:
+
+![Interleaved Spirals 0.021 solution](images/images/006-spirals-0.021.png)
+
+***Unlike in the previous solution:***
+
+  - The ratio of training to test data is much better here
+  - The final test and train losses are equal
+  - The train & test loss convergence curves are closer and more consistent
+  - We see almost no loss spikes
+  - There are no near white hidden-layer nodes. While a few are whiter than others, they seem to still contribute to the overall solution
+
+All the above indicate that this model has a good (low) expected
+generalization error.
 
 ### Coordinate projections
 
-## !!! Work in Progress !!!
+Would it be possible to get a model that is as perfect as the ones
+we got in the 1st 3 classification problems?
 
+Yes, and representation is paramount. If we could project
+the original cartesian coordinates `(x1, x2)` into
+[polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system)
+ $(r, phi)$:
+
+  - $r$ - distance from the origin
+  - $phi$ - angle from the positive side of the X-axis
+
+and add these to the allowed input features we would be in a much
+better starting position.
+
+This is reminiscent of the
+[kernel-trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) in
+[SVM (Support Vector Machines)](https://en.wikipedia.org/wiki/Support-vector_machine)
+where transforming a two-class data-set in N-dimensions, into a
+higher-dimensional space, often makes it much more easily separable.
+
+## Going beyond coordinate projections
+
+Other ideas could make the solution converge even smoother & faster:
+
+  - Combine/cross polar coordinates with periodic features: $(sin(x1), sin(x2))$
+  - Automatically drop-out redundant (almost white) nodes would help avoid irrelevant noise
+  - Being able to draw "attention": short circuit early spiral-detecting nodes, to later layers skipping layers that may randomly attenuate and perturb the best signals.
+
+All of these are effective - and by now pretty common - techniques
+in deep-training.
+
+## Summary table: how to improve models
+
+| Problem          | Symptom/red-flag           | Possible Solutions       |
+|:-------------    |:----------------------     |:------------------       |
+| Under-fitting    | slow/no loss convergence:  | Increase learning rate   |
+|                  | loss-curve going sideways  | Add relevant features    |
+|                  |                            | Add training data        |
+|                  |                            | Decrease regularization  |
+|                  |                            | Increase capacity        |
+| Over-fitting     | Gap between train & test loss | Decrease learning rate |
+|                  | where train-loss is lower  | Add test data            |
+|                  | Spikes in loss-curve       | Increase regularization  |
+|                  | Irregular inter-class boundary | Decrease capacity    |
+|                  | Non equi-distant class boundary |                     |
+
+
+
+## Summary: indicators of good/great/perfect solutions
+
+  - Low final test and test error
+  - Convergence speed: loss (both train & test) decreasing early & fast
+  - Smoothness of the learning curve: no spikes, smooth convergence
+  - Train vs test gap: no big gap, test follow train loss downwards
+  - Clean boundaries between classes, no bumps & irregularities
+
+## Colophon
+
+The bigger a neural-net is, the more complex the model and the slower
+it will take to learn (converge the loss towards acceptable low levels).
+
+The greatest shortcut to a great model is the relevancy of the inputs.
+
+If you can pre-process, project or otherwise transform inputs into
+relevant features, or add attention, and drop-off, so great features
+are better preserved, and weak ones get discarded, your model
+will improve the most.
+
+Of course, many problems have no trivial solutions which means this
+shortcut cannot be taken. In that case, there's no escape from
+brute-forcing the data, and guarding against overfitting at every
+local boundary. Essentially, any large-capacity model, simply
+assembles a large number of piece-wise local boundaries between classes.
+In essence, it simply memorises many examples.
+
+Adding capacity by complicating models have an exponentially
+growing cost. There's no escape from the
+[curse-of-dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality).
