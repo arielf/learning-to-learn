@@ -258,9 +258,9 @@ to learn more effectively in deep-learning.
 ## Summary table: how to improve models
 
 | Problem          | Symptom/red-flag           | Possible Solutions       |
-|:-------------    |:----------------------     |:------------------       |
-| Under-fitting    | &nbsp;<li>slow/no loss convergence:<br>&nbsp;<li>loss-curve going sideways                                                     | &nbsp;<li>Add relevant/better features<br>&nbsp;<li>Add training data<br>&nbsp;<li>Decrease regularization<br>&nbsp;<li>Increase capacity<br>&nbsp;<li>Increase learning rate   |
-| Over-fitting     | &nbsp;<li>Gap between train & test loss<br>where train-loss is lower <br>&nbsp;<li>Spikes in loss-curve<br>&nbsp;<li>Irregular inter-class boundary<br>&nbsp;<li>Non equi-distant class boundary                                   | &nbsp;<li>Decrease learning rate<br>&nbsp;<li>Add test data<br>&nbsp;<li>Increase regularization<br>&nbsp;<li>Decrease model capacity |
+|:-------------    |:-------------------------- |:------------------------ |
+| Under-fitting    | <li>Slow/no loss convergence:<br>  <li>loss-curve going sideways                                                     |  <li>Add relevant/better features<br> <li>Add training data<br> <li>Decrease regularization<br> <li>Increase capacity<br> <li>Increase learning rate   |
+| Over-fitting     |  <li>Gap between train & test loss<br> where train-loss is lower<br> <li>Spikes in loss-curve<br> <li>Irregular inter-class boundary<br> <li>Non equi-distant class boundary                                   |  <li>Decrease learning rate<br> <li>Add test data<br> <li>Increase regularization<br> <li>Decrease model capacity |
 
 
 ## Summary: indicators of good models
