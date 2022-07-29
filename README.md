@@ -286,12 +286,16 @@ it will take to learn (converge the loss towards acceptable low levels).
 The best shortcut to a great model is the relevancy of the inputs.
 
 If you can pre-process, project or otherwise transform inputs into
-relevant features, or add attention, and drop-off, so good features
-are better preserved, and weak ones get discarded, your model
-will improve the most.
+more relevant features do that first.
 
-Of course, many problems have no trivial solutions which means this
-shortcut cannot be taken. In that case, there's no escape from
+Once you have good input features, focus on the derived/computed
+(inside the network) features:
+
+  - Add attention, so good features are preserved
+  - Add drop-out, so weak features get discarded
+
+Of course, many problems have no trivial solutions which means these
+shortcuts cannot be taken. In that case, there's no escape from
 brute-forcing the data, and guarding against overfitting at every
 local boundary.
 
