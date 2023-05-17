@@ -289,10 +289,10 @@ If you can pre-process, project or otherwise transform inputs into
 more relevant features do that first.
 
 Once you have good input features, focus on the derived/computed
-(inside the network) features:
+(inside the network) features. Use the breakthrough in ML/AI (2017):
 
-  - Add attention, so good features are preserved
-  - Add drop-out, so weak features get discarded
+  - Switch NN architecture to use transformers!
+  - Add RLHF (Reinforcement Learning via Human Feedback)
 
 Of course, many problems have no trivial solutions which means these
 shortcuts cannot be taken. In that case, there's no escape from
@@ -310,5 +310,8 @@ growing cost. There's no escape from the
 into the exponentially larger input and solution spaces is not
 actually achieved.
 
-We seem to be far away from achieving AGI (Artificial General
-Intelligence), using our current techniques.
+We seem to still be pretty far away from achieving AGI (Artificial General
+Intelligence), using current techniques. OTOH: the most recent advances
+in AI, especially: transformers & Large Language Models (LLMs)
+are providing new hopes for a breakthrough. There's also a risk
+AGI is a double-edged sword, and it could be misused.
