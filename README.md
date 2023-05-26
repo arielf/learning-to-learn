@@ -67,6 +67,11 @@ in the original input space.
     - It lies half-way between the closest points in the two sets (the support vectors)
     - Its orientation (from corner to corner) is nearly perfect and perpendicular to the line between the closest-points _and_ the cluster centroids.
 
+Looking deeper: the identity `x1 == -x2`, i.e. the down-sloping diagonal
+of the plane, is the perfect class separator (hyperplane in
+general multi-dimensional terms). This is the reason why (`x1`, `x2`)
+are the only features required for a perfect classifier.
+
 ## Problem #2: 2-pairs of clusters with x1, x2 overlap
 
 Continuing with the 2nd simplest problem, 4-clusters with `(x1, x2)`
@@ -166,8 +171,8 @@ Unlike in the previous 3 problems, an optimal solution to the
 4th & most difficult classification problem in this set,
 is harder to come by.
 
-There's no subset of (available) input features that can lead
-to a smooth boundary between the two interleaved spirals.
+There's no subset of input features available in the UI,
+that can lead to a smooth boundary between the two interleaved spirals.
 
 This forces us to try and construct a good separating boundary
 out of many disjoint linear local functions. The only way to do this
@@ -261,7 +266,6 @@ to learn more effectively in deep-learning.
 |:-------------    |:-------------------------- |:------------------------ |
 | Under-fitting    | <li>Slow/no loss convergence:<br>  <li>loss-curve going sideways                                                     |  <li>Add relevant/better features<br> <li>Add training data<br> <li>Decrease regularization<br> <li>Increase model capacity<br> <li>Increase learning rate   |
 | Over-fitting     |  <li>Gap between train & test loss<br> where train-loss is lower<br> <li>Spikes in loss-curve<br> <li>Irregular inter-class boundary<br> <li>Non equi-distant class boundary                                   |  <li>Add test data<br> <li>Increase regularization<br> <li>Decrease model capacity<br>  <li>Decrease learning rate   |
-
 
 ## Summary: indicators of good models
 
