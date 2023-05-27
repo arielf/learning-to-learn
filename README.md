@@ -264,8 +264,8 @@ to learn more effectively in deep-learning.
 
 | Problem          | Symptom/red-flag           | Possible Solutions       |
 |:-------------    |:-------------------------- |:------------------------ |
-| Under-fitting    | <li>Slow/no loss convergence:<br>  <li>loss-curve going sideways                                                     |  <li>Add relevant/better features<br> <li>Add training data<br> <li>Decrease regularization<br> <li>Increase model capacity<br> <li>Increase learning rate   |
-| Over-fitting     |  <li>Gap between train & test loss<br> where train-loss is lower<br> <li>Spikes in loss-curve<br> <li>Irregular inter-class boundary<br> <li>Non equi-distant class boundary                                   |  <li>Add test data<br> <li>Increase regularization<br> <li>Decrease model capacity<br>  <li>Decrease learning rate   |
+| Under-fitting<br>(high bias)    | <li>Slow/no loss convergence:<br>  <li>loss-curve going sideways                                                     |  <li>Add relevant/better features<br> <li>Add training data<br> <li>Decrease regularization<br> <li>Increase model capacity<br> <li>Increase learning rate   |
+| Over-fitting<br>(high variance)     |  <li>Gap between train & test loss<br> where train-loss is lower<br> <li>Spikes in loss-curve<br> <li>Irregular inter-class boundary<br> <li>Non equi-distant class boundary                                   |  <li>Add test data<br> <li>Increase regularization<br> <li>Decrease model capacity<br>  <li>Decrease learning rate   |
 
 ## Summary: indicators of good models
 
