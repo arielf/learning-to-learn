@@ -1,7 +1,8 @@
 # Learning to learn with TensorFlow playground (spoilers ahead!)
 
 ## Introduction to tensor-flow playground
-[The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool to experiment with simple neural nets.
+[The tensor-flow playground](https://playground.tensorflow.org/) is a wonderful tool
+to experiment with simple (fully connected, feed-forward) neural nets.
 
 Given a small number of problems in 2-dimensions $(x1, x2)$,
 you're asked to design a good classifier / regressor model that will
